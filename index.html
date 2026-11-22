@@ -717,7 +717,7 @@
         .showtime-btn:active {
             transform: scale(0.99);
         }
-        /* 上映時間選択不可（赤系グレーアウト・バツ表示）スタイル */
+        /* 上映時間選択不可（赤系グレーアウト・満席インジケータ表示）スタイル */
         .showtime-btn.disabled {
             background: linear-gradient(to bottom, #b39fa1, #998385);
             border-color: #856e70;
@@ -747,45 +747,24 @@
             line-height: 1;
             letter-spacing: 2px;
         }
+        /* 座席空き具合インジケータ（椅子アイコン）コンテナ */
         .showtime-status-icon {
             width: 60px;
-            height: 60px;
-            border: 5px solid white;
-            border-radius: 50%;
+            height: 74px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
             position: relative;
         }
-        .showtime-status-icon-inner {
-            width: 34px;
-            height: 34px;
-            border: 5px solid white;
-            border-radius: 50%;
+        .showtime-status-chair {
+            width: 56px;
+            height: 70px;
+            display: block;
         }
-        /* 選択不可時のバツ（×）アイコン */
-        .showtime-btn.disabled .showtime-status-icon {
-            border: none;
-            border-radius: 0;
-        }
-        .showtime-btn.disabled .showtime-status-icon-inner {
-            display: none;
-        }
-        .showtime-btn.disabled .showtime-status-icon::before,
-        .showtime-btn.disabled .showtime-status-icon::after {
-            content: "";
-            position: absolute;
-            width: 58px;
-            height: 6px;
-            background-color: #f2e9ea;
-            border-radius: 2px;
-        }
-        .showtime-btn.disabled .showtime-status-icon::before {
-            transform: rotate(45deg);
-        }
-        .showtime-btn.disabled .showtime-status-icon::after {
-            transform: rotate(-45deg);
+        /* 選択不可時は未占有部分も白にして全部埋まったインジケータにする */
+        .showtime-btn.disabled .chair-fill-vacant {
+            fill: #ffffff;
         }
 
         .showtime-pagination-bottom {
@@ -2157,7 +2136,7 @@
 
             <!-- スケジュールリスト -->
             <div class="showtime-list-area">
-                <!-- 09:50 (追加分: ○アイコン・選択可能) -->
+                <!-- 09:50 (○相当: 未占有部分は黄色、占有割合を下から白で塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター7', '09:50', '11:15', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2166,11 +2145,23 @@
                         </div>
                         <div class="showtime-time-info">09:50 〜11:15</div>
                     </div>
-                    <!-- 空席あり（○）アイコン -->
-                    <div class="showtime-status-icon"></div>
+                    <div class="showtime-status-icon">
+                        <svg class="showtime-status-chair" viewBox="0 0 56 70" xmlns="http://www.w3.org/2000/svg" aria-label="座席空き状況（やや混雑）">
+                            <defs>
+                                <clipPath id="chair-clip-1">
+                                    <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#chair-clip-1)">
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#facc15" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                            </g>
+                            <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                        </svg>
+                    </div>
                 </div>
 
-                <!-- 13:10 (追加分: ○アイコン・選択可能) -->
+                <!-- 13:10 (○相当: 未占有部分は黄色、占有割合を下から白で塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター9', '13:10', '14:35', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2179,11 +2170,23 @@
                         </div>
                         <div class="showtime-time-info">13:10 〜14:35</div>
                     </div>
-                    <!-- 空席あり（○）アイコン -->
-                    <div class="showtime-status-icon"></div>
+                    <div class="showtime-status-icon">
+                        <svg class="showtime-status-chair" viewBox="0 0 56 70" xmlns="http://www.w3.org/2000/svg" aria-label="座席空き状況（やや混雑）">
+                            <defs>
+                                <clipPath id="chair-clip-2">
+                                    <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#chair-clip-2)">
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#facc15" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                            </g>
+                            <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                        </svg>
+                    </div>
                 </div>
 
-                <!-- 16:30 (元のコード: ○アイコン・選択可能) -->
+                <!-- 16:30 (○相当: 未占有部分は黄色、占有割合を下から白で塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター11', '16:30', '17:55', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2192,11 +2195,23 @@
                         </div>
                         <div class="showtime-time-info">16:30 〜17:55</div>
                     </div>
-                    <!-- 空席あり（○）アイコン -->
-                    <div class="showtime-status-icon"></div>
+                    <div class="showtime-status-icon">
+                        <svg class="showtime-status-chair" viewBox="0 0 56 70" xmlns="http://www.w3.org/2000/svg" aria-label="座席空き状況（やや混雑）">
+                            <defs>
+                                <clipPath id="chair-clip-3">
+                                    <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#chair-clip-3)">
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#facc15" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                            </g>
+                            <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                        </svg>
+                    </div>
                 </div>
 
-                <!-- 18:45 (追加分: ○アイコン・選択可能) -->
+                <!-- 18:45 (○相当: 未占有部分は黄色、占有割合を下から白で塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター8', '18:45', '20:10', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2205,11 +2220,23 @@
                         </div>
                         <div class="showtime-time-info">18:45 〜20:10</div>
                     </div>
-                    <!-- 空席あり（○）アイコン -->
-                    <div class="showtime-status-icon"></div>
+                    <div class="showtime-status-icon">
+                        <svg class="showtime-status-chair" viewBox="0 0 56 70" xmlns="http://www.w3.org/2000/svg" aria-label="座席空き状況（やや混雑）">
+                            <defs>
+                                <clipPath id="chair-clip-4">
+                                    <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#chair-clip-4)">
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#facc15" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                            </g>
+                            <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                        </svg>
+                    </div>
                 </div>
 
-                <!-- 21:40 (元のコード: 一部引数をシアター11に統一) -->
+                <!-- 21:40 (◎相当: 未占有部分は緑色、占有割合を下から白で塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター11', '21:40', '23:05', 'double_circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2218,9 +2245,19 @@
                         </div>
                         <div class="showtime-time-info">21:40 〜23:05</div>
                     </div>
-                    <!-- 空席あり（◎）アイコン -->
                     <div class="showtime-status-icon">
-                        <div class="showtime-status-icon-inner"></div>
+                        <svg class="showtime-status-chair" viewBox="0 0 56 70" xmlns="http://www.w3.org/2000/svg" aria-label="座席空き状況（空席あり）">
+                            <defs>
+                                <clipPath id="chair-clip-5">
+                                    <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#chair-clip-5)">
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#22c55e" />
+                                <rect class="chair-fill-occupied" x="0" y="56" width="56" height="14" fill="#ffffff" />
+                            </g>
+                            <path d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -3149,7 +3186,7 @@
 
     /**
 - 【上映時間ボタンの有効/無効表示更新】
-- 吹替のブリパニック以外はバツ表示・グレーアウトにする
+- 吹替のブリパニック以外は満席表示・グレーアウトにする
      */
     function updateShowtimeButtons() {
         const isAvailable = (globalState.selectedMovie === '【吹替】ブリパニック');
