@@ -1114,13 +1114,6 @@
             gap: 30px;
         }
 
-        /* 矢印アイコン (静止、左下向き) */
-        .tutorial-arrow {
-            position: absolute;
-            z-index: 70;
-            pointer-events: none;
-        }
-
         .ticket-header-area {
             margin-top: 60px;
             margin-left: 170px;
@@ -2399,18 +2392,6 @@
         <!-- チュートリアル用の半透明オーバーレイ (z-index: 50) -->
         <div class="ticket-overlay" id="ticket-overlay"></div>
 
-        <!-- チュートリアル用の矢印アイコン（静止、左下向き） (z-index: 70) -->
-        <div class="tutorial-arrow" style="top: 180px; left: 825px;" id="tutorial-arrow-top">
-            <svg width="150" height="150" viewBox="0 0 100 100" style="filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.3)); transform: rotate(-135deg);">
-                <path d="M 50 10 L 90 50 L 65 50 L 65 90 L 35 90 L 35 50 L 10 50 Z" fill="#735a5c" stroke="white" stroke-width="3" stroke-linejoin="round" />
-            </svg>
-        </div>
-        <div class="tutorial-arrow" style="bottom: 90px; right: 390px; left: auto;" id="tutorial-arrow-bottom">
-            <svg width="150" height="150" viewBox="0 0 100 100" style="filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.3)); transform: rotate(-135deg);">
-                <path d="M 50 10 L 90 50 L 65 50 L 65 90 L 35 90 L 35 50 L 10 50 Z" fill="#735a5c" stroke="white" stroke-width="3" stroke-linejoin="round" />
-            </svg>
-        </div>
-
         <!-- ロゴと時計 -->
         <div class="top-header-kinezo">CINEMA</div>
         <div class="top-clock">16:01</div>
@@ -3629,19 +3610,15 @@
         
         if (totalSeats > 0 && selectedCount === totalSeats) {
             guide.style.display = 'none';
-            // 全席選択されたらdisabledクラスを外し、オーバーレイと矢印、不要な下部吹き出しを隠す
+            // 全席選択されたらdisabledクラスを外し、オーバーレイと不要な下部吹き出しを隠す
             submitBtn.classList.remove('disabled');
             document.getElementById('ticket-overlay').style.display = 'none';
-            document.getElementById('tutorial-arrow-top').style.display = 'none';
-            document.getElementById('tutorial-arrow-bottom').style.display = 'none';
             if(bottomGuide) bottomGuide.style.display = 'none';
         } else {
             guide.style.display = 'block';
-            // 未選択がある場合はdisabledにし、オーバーレイと矢印、下部吹き出しを表示
+            // 未選択がある場合はdisabledにし、オーバーレイと下部吹き出しを表示
             submitBtn.classList.add('disabled');
             document.getElementById('ticket-overlay').style.display = 'block';
-            document.getElementById('tutorial-arrow-top').style.display = 'block';
-            document.getElementById('tutorial-arrow-bottom').style.display = 'block';
             if(bottomGuide) bottomGuide.style.display = 'block';
         }
     }
