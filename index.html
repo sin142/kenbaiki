@@ -865,7 +865,9 @@
             background: var(--color-primary);
         }
         .legend-box.reserved {
-            background: #555;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            color: #94a3b8;
         }
         .legend-box.notsale {
             background: #ccc;
@@ -952,10 +954,13 @@
             border-color: var(--color-primary);
         }
         .seat-btn-cell.reserved {
-            background-color: #555;
-            border-color: #555;
-            color: #fff;
+            background-color: #e2e8f0;
+            border-color: #cbd5e1;
+            color: #94a3b8;
             cursor: not-allowed;
+        }
+        .seat-btn-cell.reserved:active {
+            transform: none;
         }
         .seat-btn-cell.notsale {
             background-color: #ccc;
@@ -2306,7 +2311,7 @@
                 </div>
                 <div class="legend-item">
                     <div class="legend-box reserved">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     </div>
                     <div class="legend-text">予約済み<br><span class="en">Reserved</span></div>
                 </div>
@@ -3419,7 +3424,7 @@
                 }
 
                 if (seat.status === 'reserved') {
-                    btn.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
+                    btn.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`;
                 } else if (seat.status === 'notsale') {
                     btn.textContent = '✖';
                 } else if (seat.type === 'wheelchair') {
