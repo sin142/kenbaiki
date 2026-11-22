@@ -923,10 +923,28 @@
             width: 95%;
         }
 
+        /* 横の列ごとの視認性を高めるゼブラストライプ背景帯 */
+        .seat-row-bg {
+            width: calc(100% + 16px);
+            height: calc(100% + 12px);
+            border-radius: 6px;
+            z-index: 0;
+            pointer-events: none;
+            box-sizing: border-box;
+        }
+        .seat-row-bg.even {
+            background-color: #e6ebf2;
+        }
+        .seat-row-bg.odd {
+            background-color: #ffffff;
+        }
+
         .seat-row-label {
             font-size: 30px;
             font-weight: bold;
             color: #555;
+            position: relative;
+            z-index: 1;
         }
 
         .seat-btn-cell {
@@ -944,6 +962,8 @@
             cursor: pointer;
             box-sizing: border-box;
             transition: transform 0.1s, background-color 0.1s;
+            position: relative;
+            z-index: 1;
         }
         .seat-btn-cell:active {
             transform: scale(0.9);
@@ -3344,6 +3364,7 @@
         arrowContainer.style.width = '100%';
         arrowContainer.style.height = '100%';
         arrowContainer.style.position = 'relative';
+        arrowContainer.style.zIndex = '1';
 
         const arrowLine = document.createElement('div');
         arrowLine.style.position = 'absolute';
@@ -3381,6 +3402,17 @@
 
         // 座席とアルファベットの配置
         seatRows.forEach((row, rowIndex) => {
+            // 横の列ごとのゼブラストライプ背景帯を配置
+            const rowBg = document.createElement('div');
+            rowBg.className = `seat-row-bg ${rowIndex % 2 === 0 ? 'even' : 'odd'}`;
+            rowBg.style.gridRow = rowIndex + 1;
+            if (['A', 'B', 'C', 'D', 'E', 'F'].includes(row)) {
+                rowBg.style.gridColumn = '6 / 21';
+            } else {
+                rowBg.style.gridColumn = '1 / 21';
+            }
+            grid.appendChild(rowBg);
+
             // 左側のアルファベットラベル (A〜F列は 矢印の右側 col 6 に配置、G,H列は左端 col 1 に配置)
             const leftLabel = document.createElement('div');
             leftLabel.className = 'seat-row-label';
