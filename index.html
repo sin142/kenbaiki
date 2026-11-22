@@ -15,29 +15,29 @@
             --color-primary-border: #991b1b;
             --color-primary-subtext: #fee2e2;
 
-            /* Secondary: 戻る・前へ・ムビチケ等の補助アクション */
+            /* Secondary: 戻る・前へ・ムビチケ等の補助アクション（赤系グレー） */
             --color-secondary-bg: #ffffff;
-            --color-secondary-border: #94a3b8;
-            --color-secondary-text: #475569;
+            --color-secondary-border: #9e8789;
+            --color-secondary-text: #574143;
 
-            /* Reset: リセット系（赤のPrimaryと競合しない無彩色アウトライン） */
+            /* Reset: リセット系（赤のPrimaryと競合しない赤系グレーアウトライン） */
             --color-reset-bg: #ffffff;
-            --color-reset-border: #475569;
-            --color-reset-text: #1e293b;
+            --color-reset-border: #574143;
+            --color-reset-text: #2b1e1f;
 
             /* Selected / Done: 選択済み・完了状態（赤の補色となるグリーン系） */
             --color-done-bg: #e6f4ea;
             --color-done-border: #1e7e34;
             --color-done-text: #14532d;
 
-            /* Neutral / Chrome: 非操作のUI枠・プログレスバー・背景（クールグレー系） */
-            --color-chrome-dark: #334155;
-            --color-chrome-darker: #1e293b;
-            --color-chrome-mid: #cbd5e1;
-            --color-chrome-bg: #f4f5f7;
-            --color-sidebar: #e2e8f0;
-            --color-disabled-bg: #cbd5e1;
-            --color-disabled-text: #94a3b8;
+            /* Neutral / Chrome: 非操作のUI枠・プログレスバー・背景（赤系グレー） */
+            --color-chrome-dark: #3f2d2f;
+            --color-chrome-darker: #2b1e1f;
+            --color-chrome-mid: #d6c8c9;
+            --color-chrome-bg: #f7f2f2;
+            --color-sidebar: #ebe1e2;
+            --color-disabled-bg: #d6c8c9;
+            --color-disabled-text: #9e8789;
         }
 
         /* スクロールおよびスワイプ、テキスト選択の完全無効化（キオスク端末用要件） */
@@ -58,7 +58,7 @@
             background-color: #000;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #3f2d2f;
         }
 
         /* 全画面表示時の背景と枠の調整 */
@@ -79,7 +79,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #111;
+            background-color: #171112;
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -98,7 +98,7 @@
         }
         .setup-sub {
             font-size: 18px;
-            color: #ccc;
+            color: #d6c8c9;
             margin-bottom: 30px;
             line-height: 1.6;
         }
@@ -106,10 +106,10 @@
             display: flex;
             gap: 20px;
             margin-bottom: 35px;
-            background-color: #222;
+            background-color: #241a1b;
             padding: 20px 30px;
             border-radius: 8px;
-            border: 1px solid #444;
+            border: 1px solid #4a3739;
             cursor: default;
         }
         .setup-config-item {
@@ -120,15 +120,15 @@
         }
         .setup-config-item label {
             font-size: 14px;
-            color: #aaa;
+            color: #bfa9ab;
             font-weight: bold;
         }
         .setup-config-item input {
             font-size: 18px;
             padding: 8px 12px;
             border-radius: 4px;
-            border: 1px solid #555;
-            background-color: #333;
+            border: 1px solid #5e4749;
+            background-color: #332527;
             color: #fff;
             width: 160px;
             user-select: text;
@@ -192,12 +192,12 @@
             text-align: center;
             margin-bottom: 50px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid #ebe1e2;
         }
         .screen-header h2 {
             font-size: 36px;
             margin: 0;
-            color: #212529;
+            color: #2b1e1f;
         }
 
         /* --- 共通コンポーネント --- */
@@ -222,12 +222,12 @@
             top: 120px;
             left: 35px;
             font-size: 40px;
-            color: #212529;
+            color: #2b1e1f;
             font-family: Arial, sans-serif;
             z-index: 10;
         }
 
-        /* 共通の情報ラッパー（無彩色グレー背景） */
+        /* 共通の情報ラッパー（赤系グレー背景） */
         .content-wrapper-bg {
             margin-left: 170px;
             width: calc(100% - 220px);
@@ -254,7 +254,7 @@
             text-align: center;
             font-size: 48px;
             font-weight: bold;
-            color: #333;
+            color: #3f2d2f;
         }
         .start-btn {
             position: absolute;
@@ -329,8 +329,8 @@
             position: relative;
             font-weight: bold;
             line-height: 1.1;
-            background-color: #e2e8f0; 
-            color: #64748b;
+            background-color: #ebe1e2; 
+            color: #735a5c;
             clip-path: polygon(0% 0%, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0% 100%, 20px 50%);
             margin-left: -17px;
             padding-left: 15px;
@@ -347,7 +347,7 @@
 
         .progress-step.completed {
             background-color: var(--color-chrome-mid);
-            color: #475569;
+            color: #574143;
         }
         .progress-step.active {
             background-color: var(--color-chrome-dark);
@@ -370,8 +370,8 @@
         .side-btn {
             width: 110px;
             height: 140px;
-            background-color: #64748b;
-            border: 2px solid #475569;
+            background-color: #735a5c;
+            border: 2px solid #574143;
             border-radius: 8px;
             color: white;
             display: flex;
@@ -416,12 +416,12 @@
         .date-title-main {
             font-size: 42px;
             font-weight: bold;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 5px;
         }
         .date-title-sub {
             font-size: 26px;
-            color: #555;
+            color: #735a5c;
         }
         
         .date-btn-area {
@@ -477,12 +477,12 @@
         .movie-title-main {
             font-size: 38px;
             font-weight: normal;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 5px;
         }
         .movie-title-sub {
             font-size: 24px;
-            color: #555;
+            color: #735a5c;
         }
         .movie-date-box {
             width: calc(100% - 30px); /* 左右の余白を考慮 */
@@ -491,7 +491,7 @@
             border-bottom: 1px solid var(--color-chrome-mid);
             padding: 12px 20px;
             font-size: 32px;
-            color: #333;
+            color: #3f2d2f;
             box-sizing: border-box;
         }
         .movie-count-area {
@@ -499,7 +499,7 @@
             margin-top: 15px;
             margin-right: 50px;
             font-size: 24px;
-            color: #555;
+            color: #735a5c;
         }
         .movie-count-num {
             color: var(--color-chrome-darker);
@@ -570,7 +570,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: #555;
+            color: #735a5c;
             line-height: 1;
         }
         .movie-page-nums {
@@ -634,12 +634,12 @@
         .showtime-title-main {
             font-size: 36px;
             font-weight: normal;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 5px;
         }
         .showtime-title-sub {
             font-size: 22px;
-            color: #555;
+            color: #735a5c;
         }
         
         .showtime-movie-box {
@@ -654,12 +654,12 @@
         .showtime-movie-title {
             font-size: 30px;
             font-weight: normal;
-            color: #333;
+            color: #3f2d2f;
             line-height: 1.2;
         }
         .showtime-movie-en {
             font-size: 18px;
-            color: #555;
+            color: #735a5c;
             margin-top: 5px;
         }
 
@@ -668,14 +668,14 @@
             margin: 0 auto; /* 中央揃え */
             display: flex;
             box-sizing: border-box;
-            background-color: #e2e8f0;
+            background-color: #ebe1e2;
             border-bottom: 1px solid var(--color-chrome-mid);
         }
         .showtime-date-cell {
             flex: 1;
             padding: 8px 15px;
             font-size: 26px;
-            color: #64748b;
+            color: #735a5c;
             border-right: 1px solid var(--color-chrome-mid);
             text-align: left;
             height: 45px;
@@ -686,8 +686,8 @@
             border-right: none;
         }
         .showtime-date-cell.active {
-            background-color: #cbd5e1;
-            color: #1e293b;
+            background-color: #d6c8c9;
+            color: #2b1e1f;
             font-weight: bold;
         }
 
@@ -720,11 +720,11 @@
         .showtime-btn:active {
             transform: scale(0.99);
         }
-        /* 上映時間選択不可（グレーアウト・バツ表示）スタイル */
+        /* 上映時間選択不可（赤系グレーアウト・バツ表示）スタイル */
         .showtime-btn.disabled {
-            background: linear-gradient(to bottom, #a8a8a8, #8f8f8f);
-            border-color: #7d7d7d;
-            color: #e6e6e6;
+            background: linear-gradient(to bottom, #b39fa1, #998385);
+            border-color: #856e70;
+            color: #f2e9ea;
             cursor: not-allowed;
             box-shadow: none;
         }
@@ -781,7 +781,7 @@
             position: absolute;
             width: 58px;
             height: 6px;
-            background-color: #e6e6e6;
+            background-color: #f2e9ea;
             border-radius: 2px;
         }
         .showtime-btn.disabled .showtime-status-icon::before {
@@ -819,12 +819,12 @@
         .seat-title-main {
             font-size: 32px;
             font-weight: normal;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 5px;
         }
         .seat-title-sub {
             font-size: 20px;
-            color: #555;
+            color: #735a5c;
         }
 
         .seat-main-content {
@@ -865,23 +865,23 @@
             background: var(--color-primary);
         }
         .legend-box.reserved {
-            background: #e2e8f0;
-            border: 1px solid #cbd5e1;
-            color: #94a3b8;
+            background: #ebe1e2;
+            border: 1px solid #d6c8c9;
+            color: #9e8789;
         }
         .legend-box.notsale {
-            background: #ccc;
-            color: #666;
+            background: #d6c8c9;
+            color: #735a5c;
             font-weight: bold;
         }
         .legend-text {
             font-size: 16px;
             line-height: 1.2;
-            color: #333;
+            color: #3f2d2f;
         }
         .legend-text .en {
             font-size: 12px;
-            color: #777;
+            color: #8c7476;
         }
 
         .seat-map-wrapper {
@@ -899,7 +899,7 @@
         .screen-bar {
             width: 70%;
             height: 40px;
-            background-color: #94a3b8;
+            background-color: #9e8789;
             color: #fff;
             display: flex;
             align-items: center;
@@ -933,7 +933,7 @@
             box-sizing: border-box;
         }
         .seat-row-bg.even {
-            background-color: #cfd8e3;
+            background-color: #e3d6d7;
         }
         .seat-row-bg.odd {
             background-color: #ffffff;
@@ -942,7 +942,7 @@
         .seat-row-label {
             font-size: 30px;
             font-weight: bold;
-            color: #555;
+            color: #735a5c;
             position: relative;
             z-index: 1;
         }
@@ -974,18 +974,18 @@
             border-color: var(--color-primary);
         }
         .seat-btn-cell.reserved {
-            background-color: #e2e8f0;
-            border-color: #cbd5e1;
-            color: #94a3b8;
+            background-color: #ebe1e2;
+            border-color: #d6c8c9;
+            color: #9e8789;
             cursor: not-allowed;
         }
         .seat-btn-cell.reserved:active {
             transform: none;
         }
         .seat-btn-cell.notsale {
-            background-color: #ccc;
-            border-color: #ccc;
-            color: #666;
+            background-color: #d6c8c9;
+            border-color: #d6c8c9;
+            color: #735a5c;
             cursor: not-allowed;
         }
         .seat-btn-cell.wheelchair {
@@ -1013,7 +1013,7 @@
         }
         .seat-selected-title {
             font-size: 18px;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 10px;
         }
         .seat-selected-slots {
@@ -1030,7 +1030,7 @@
             width: 40px;
             height: 40px;
             border: 2px solid transparent;
-            border-bottom: 2px dashed #999;
+            border-bottom: 2px dashed #9e8789;
             margin-bottom: 5px;
         }
         .seat-slot-box.filled {
@@ -1041,7 +1041,7 @@
         .seat-slot-text {
             font-size: 18px;
             font-weight: bold;
-            color: #333;
+            color: #3f2d2f;
             height: 20px;
             line-height: 1;
         }
@@ -1055,7 +1055,7 @@
         .seat-action-btn {
             width: 200px;
             height: 80px;
-            border: 1px solid #94a3b8;
+            border: 1px solid #9e8789;
             border-radius: 6px;
             font-size: 22px;
             font-weight: bold;
@@ -1092,7 +1092,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(43, 30, 31, 0.4);
             z-index: 50;
             pointer-events: none;
         }
@@ -1129,12 +1129,12 @@
         .ticket-title-main {
             font-size: 30px;
             font-weight: normal;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 5px;
         }
         .ticket-title-sub {
             font-size: 18px;
-            color: #555;
+            color: #735a5c;
         }
 
         .ticket-movie-bar {
@@ -1148,18 +1148,18 @@
         }
         .ticket-movie-name {
             font-size: 24px;
-            color: #333;
+            color: #3f2d2f;
         }
         .ticket-movie-en {
             font-size: 14px;
-            color: #666;
+            color: #735a5c;
         }
 
         .ticket-info-bar {
             width: calc(100% - 30px); /* 左右の余白を考慮 */
             margin: 0 auto; /* 中央揃え */
             display: flex;
-            background-color: #e2e8f0;
+            background-color: #ebe1e2;
             border-bottom: 1px solid var(--color-chrome-mid);
             box-sizing: border-box;
             height: 40px;
@@ -1168,7 +1168,7 @@
         .ticket-info-cell {
             padding: 0 15px;
             font-size: 20px;
-            color: #334155;
+            color: #3f2d2f;
             border-right: 1px solid var(--color-chrome-mid);
             height: 100%;
             display: flex;
@@ -1291,10 +1291,10 @@
         /* 中央（上部）の吹き出し */
         .ticket-guide {
             background-color: rgba(255,255,255,0.95);
-            border: 1px solid #ccc;
+            border: 1px solid #d6c8c9;
             padding: 20px;
             font-size: 26px;
-            color: #333;
+            color: #3f2d2f;
             border-radius: 8px;
             position: absolute; /* 枠外に出すため絶対配置 */
             left: 690px;
@@ -1310,7 +1310,7 @@
             left: -21px;
             border-width: 10px 21px 10px 0;
             border-style: solid;
-            border-color: transparent #ccc transparent transparent;
+            border-color: transparent #d6c8c9 transparent transparent;
         }
         .ticket-guide::after {
             content: "";
@@ -1353,10 +1353,10 @@
         /* ムビチケ用吹き出しスタイル */
         .ticket-guide-text {
             background-color: rgba(255,255,255,0.95);
-            border: 1px solid #ccc;
+            border: 1px solid #d6c8c9;
             padding: 15px;
             font-size: 26px;
-            color: #333;
+            color: #3f2d2f;
             border-radius: 8px;
             position: relative;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -1376,7 +1376,7 @@
             left: auto;
             border-width: 10px 0 10px 21px;
             border-style: solid;
-            border-color: transparent transparent transparent #ccc;
+            border-color: transparent transparent transparent #d6c8c9;
         }
         .ticket-guide-text::after {
             content: "";
@@ -1445,14 +1445,13 @@
         .ticket-submit-btn .en {
             font-size: 14px;
         }
-        /* 決定ボタンをグレースケール＆無効にするためのクラス */
+        /* 決定ボタンを赤系グレー＆無効にするためのクラス */
         .ticket-submit-btn.disabled {
             background: var(--color-disabled-bg);
-            border: 1px solid #94a3b8;
+            border: 1px solid #9e8789;
             color: var(--color-disabled-text);
             cursor: not-allowed;
             box-shadow: none;
-            filter: grayscale(100%);
             pointer-events: none;
         }
 
@@ -1543,7 +1542,7 @@
         .ticket-modal-page {
             text-align: center;
             font-size: 24px;
-            color: #555;
+            color: #735a5c;
             font-weight: bold;
             line-height: 1;
         }
@@ -1597,7 +1596,7 @@
             padding: 50px 30px;
             background-color: var(--color-chrome-bg);
             font-size: 28px;
-            color: #333;
+            color: #3f2d2f;
             font-weight: bold;
             line-height: 1.5;
         }
@@ -1632,12 +1631,12 @@
         .confirm-title-main {
             font-size: 38px;
             font-weight: normal;
-            color: #333;
+            color: #3f2d2f;
             margin-bottom: 5px;
         }
         .confirm-title-sub {
             font-size: 24px;
-            color: #555;
+            color: #735a5c;
         }
         .confirm-content-box {
             margin-left: 170px;
@@ -1654,12 +1653,12 @@
         }
         .confirm-movie-title {
             font-size: 26px;
-            color: #333;
+            color: #3f2d2f;
             font-weight: normal;
         }
         .confirm-movie-en {
             font-size: 16px;
-            color: #666;
+            color: #735a5c;
         }
         .confirm-details-area {
             padding: 20px 25px;
@@ -1678,7 +1677,7 @@
             background-color: #ffffff;
         }
         .confirm-row:nth-child(even) {
-            background-color: #e2e8f0;
+            background-color: #ebe1e2;
         }
         .confirm-row.total-row {
             background-color: transparent;
@@ -1692,17 +1691,17 @@
         }
         .confirm-th .ja {
             font-size: 18px;
-            color: #475569;
+            color: #574143;
         }
         .confirm-th .en {
             font-size: 12px;
-            color: #64748b;
+            color: #735a5c;
         }
         .confirm-td {
             padding: 15px 20px;
             font-size: 24px;
             font-weight: bold;
-            color: #1e293b;
+            color: #2b1e1f;
             vertical-align: middle;
         }
         .confirm-total-td {
@@ -1715,18 +1714,18 @@
         }
         .confirm-message-label {
             font-size: 16px;
-            color: #475569;
+            color: #574143;
             font-weight: bold;
             margin-bottom: 5px;
         }
         .confirm-message-text {
             font-size: 20px;
-            color: #555;
+            color: #735a5c;
             line-height: 1.5;
         }
         .confirm-message-text .en {
             font-size: 14px;
-            color: #777;
+            color: #8c7476;
             margin-top: 5px;
         }
 
@@ -1796,8 +1795,8 @@
 
         <!-- メインタイトル -->
         <div class="screen-header" style="margin-top: 120px; margin-left: 130px; border-bottom: none; margin-bottom: 20px;">
-            <h2 style="font-size: 46px; font-weight: 500; color: #333; margin-bottom: 15px;">ご希望のサービスをおえらびください。</h2>
-            <p style="font-size: 26px; color: #666; margin: 0;">Please select the service.</p>
+            <h2 style="font-size: 46px; font-weight: 500; color: #3f2d2f; margin-bottom: 15px;">ご希望のサービスをおえらびください。</h2>
+            <p style="font-size: 26px; color: #735a5c; margin: 0;">Please select the service.</p>
         </div>
 
         <!-- ボタンエリア -->
@@ -1851,10 +1850,10 @@
 
         <!-- 注意書き -->
         <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px; gap: 30px; margin-left: 130px; width: calc(100% - 130px);">
-            <div style="width: 75px; height: 75px; background-color: #64748b; border-radius: 50%; color: white; font-size: 55px; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
+            <div style="width: 75px; height: 75px; background-color: #735a5c; border-radius: 50%; color: white; font-size: 55px; font-weight: bold; display: flex; align-items: center; justify-content: center;">!</div>
             <div style="text-align: left;">
-                <p style="font-size: 30px; color: #444; margin: 0 0 5px 0;">紙の前売券・割引券をご利用の方はチケット窓口<br>までお越しください。</p>
-                <p style="font-size: 20px; color: #888; margin: 0;">Please use an advance ticket(except mubichike) or discount ticket at the box office.</p>
+                <p style="font-size: 30px; color: #574143; margin: 0 0 5px 0;">紙の前売券・割引券をご利用の方はチケット窓口<br>までお越しください。</p>
+                <p style="font-size: 20px; color: #8c7476; margin: 0;">Please use an advance ticket(except mubichike) or discount ticket at the box office.</p>
             </div>
         </div>
     </div>
@@ -2340,9 +2339,9 @@
                     <div class="legend-text">販売不可<br><span class="en">Not Sale</span></div>
                 </div>
                 
-                <!-- 座席の種類（グレーアウト） -->
+                <!-- 座席の種類（赤系グレーアウト） -->
                 <div class="legend-item" style="margin-top: 30px; opacity: 0.5;">
-                    <div style="width: 80px; height: 100px; background: #bbb; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 5px; text-align: center;">
+                    <div style="width: 80px; height: 100px; background: #bfa9ab; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; padding: 5px; text-align: center;">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M19 13v-2c-1.5 0-2.5-1.5-2.5-3V5h-9v3c0 1.5-1 3-2.5 3v2h14z"/></svg>
                         <div style="font-size: 14px; font-weight: bold; margin-top: 5px; line-height: 1.1;">座席の<br>種類</div>
                         <div style="font-size: 10px; margin-top: 2px;">Seat<br>Information</div>
@@ -2364,7 +2363,7 @@
                 <!-- スクリーンのバー -->
                 <div class="screen-bar">スクリーン (Screen)</div>
                 <!-- 上向き矢印（中央上） -->
-                <div style="width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 25px solid #94a3b8;  margin-bottom: 15px;"></div>
+                <div style="width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 25px solid #9e8789;  margin-bottom: 15px;"></div>
 
                 <div style="position: relative; margin-top: 10px; margin-left: 345px; width: 95%;">
                     <!-- 座席グリッド（拡大） -->
@@ -2378,7 +2377,7 @@
         <!-- 下部フッターバー -->
         <div class="seat-footer-bar">
             <div class="seat-selected-info">
-                <div class="seat-selected-title">選択中の座席（最大5席）<br><span class="en" style="font-size:14px;color:#777;">selected seats(Max 5)</span></div>
+                <div class="seat-selected-title">選択中の座席（最大5席）<br><span class="en" style="font-size:14px;color:#8c7476;">selected seats(Max 5)</span></div>
                 <div class="seat-selected-slots">
                     <div class="seat-slot-wrapper"><div class="seat-slot-box"></div><div class="seat-slot-text"></div></div>
                     <div class="seat-slot-wrapper"><div class="seat-slot-box"></div><div class="seat-slot-text"></div></div>
@@ -2397,18 +2396,18 @@
 
     <!-- 6. 券種選択画面 (画像をもとにUI構築) -->
     <div id="screen-ticket" class="screen-container with-sidebar">
-        <!-- チュートリアル用の半透明オーバーレイ（グレースケール化） (z-index: 50) -->
+        <!-- チュートリアル用の半透明オーバーレイ (z-index: 50) -->
         <div class="ticket-overlay" id="ticket-overlay"></div>
 
         <!-- チュートリアル用の矢印アイコン（静止、左下向き） (z-index: 70) -->
         <div class="tutorial-arrow" style="top: 180px; left: 825px;" id="tutorial-arrow-top">
             <svg width="150" height="150" viewBox="0 0 100 100" style="filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.3)); transform: rotate(-135deg);">
-                <path d="M 50 10 L 90 50 L 65 50 L 65 90 L 35 90 L 35 50 L 10 50 Z" fill="#64748b" stroke="white" stroke-width="3" stroke-linejoin="round" />
+                <path d="M 50 10 L 90 50 L 65 50 L 65 90 L 35 90 L 35 50 L 10 50 Z" fill="#735a5c" stroke="white" stroke-width="3" stroke-linejoin="round" />
             </svg>
         </div>
         <div class="tutorial-arrow" style="bottom: 90px; right: 390px; left: auto;" id="tutorial-arrow-bottom">
             <svg width="150" height="150" viewBox="0 0 100 100" style="filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.3)); transform: rotate(-135deg);">
-                <path d="M 50 10 L 90 50 L 65 50 L 65 90 L 35 90 L 35 50 L 10 50 Z" fill="#64748b" stroke="white" stroke-width="3" stroke-linejoin="round" />
+                <path d="M 50 10 L 90 50 L 65 50 L 65 90 L 35 90 L 35 50 L 10 50 Z" fill="#735a5c" stroke="white" stroke-width="3" stroke-linejoin="round" />
             </svg>
         </div>
 
@@ -2500,7 +2499,7 @@
                 <div class="ticket-info-cell ticket-info-price" id="ticket-price-text">-- , ---</div>
             </div>
 
-            <!-- 券種選択リスト (highlight-element でグレースケールを回避, 幅をコンテンツに合わせる) -->
+            <!-- 券種選択リスト (highlight-element でオーバーレイを回避, 幅をコンテンツに合わせる) -->
             <div style="position: relative;">
                 <div class="ticket-main-content highlight-element">
                     <div class="ticket-seat-list" id="ticket-seat-list">
@@ -2534,7 +2533,7 @@
                 </button>
             </div>
             
-            <!-- 決定ボタン（最初から表示し、グレースケール・無効化） -->
+            <!-- 決定ボタン（最初から表示し、無効化） -->
             <div class="ticket-submit-wrapper" style="margin-bottom: 10px;"> <!-- ムビチケ枠のpadding分とy座標を合わせる -->
                 <button id="ticket-submit-btn" class="ticket-submit-btn disabled" onclick="initConfirmScreen(); navigate('screen-confirm')">
                     <div class="main">決定</div>
@@ -2737,7 +2736,7 @@
     <!-- 8. タスク完了画面 -->
     <div id="screen-finish" class="screen-container" style="background-color: #fff;">
         <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-            <div style="font-size: 48px; font-weight: bold; color: #333; text-align: center;">
+            <div style="font-size: 48px; font-weight: bold; color: #3f2d2f; text-align: center;">
                 タスクは完了です。操作を止めて、実験者の指示に従ってください
             </div>
         </div>
@@ -3373,7 +3372,7 @@
         arrowLine.style.bottom = '10px'; 
         arrowLine.style.width = '8px';
         arrowLine.style.top = '20px'; 
-        arrowLine.style.backgroundColor = '#666';
+        arrowLine.style.backgroundColor = '#735a5c';
 
         const arrowHead = document.createElement('div');
         arrowHead.style.position = 'absolute';
@@ -3384,7 +3383,7 @@
         arrowHead.style.height = '0';
         arrowHead.style.borderLeft = '20px solid transparent';
         arrowHead.style.borderRight = '20px solid transparent';
-        arrowHead.style.borderBottom = '25px solid #666';
+        arrowHead.style.borderBottom = '25px solid #735a5c';
 
         const arrowBase = document.createElement('div');
         arrowBase.style.position = 'absolute';
@@ -3393,7 +3392,7 @@
         arrowBase.style.transform = 'translateX(-50%)';
         arrowBase.style.width = '40px';
         arrowBase.style.height = '8px';
-        arrowBase.style.backgroundColor = '#666';
+        arrowBase.style.backgroundColor = '#735a5c';
 
         arrowLine.appendChild(arrowHead);
         arrowLine.appendChild(arrowBase);
