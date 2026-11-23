@@ -32,10 +32,10 @@
             --color-reset-border: #2c65b8;
             --color-reset-text: #d1dae6;
 
-            /* Selected / Done: 選択済み・完了状態（ダークグリーン系） */
-            --color-done-bg: #162e1e;
-            --color-done-border: #2e7d47;
-            --color-done-text: #86efac;
+            /* Selected / Done: 選択済み・完了状態（青系） */
+            --color-done-bg: #162a45;
+            --color-done-border: #2c65b8;
+            --color-done-text: #d1dae6;
 
             /* Neutral / Chrome: 非操作のUI枠・プログレスバー・背景（ダークモード） */
             --color-bg-base: #181415;
@@ -856,7 +856,8 @@
             background: #3d3334;
         }
         .legend-box.selected {
-            background: var(--color-primary);
+            background: var(--color-blue-btn-light);
+            border: 2px solid var(--color-blue-btn-border);
         }
         .legend-box.reserved {
             background: #2b2324;
@@ -963,9 +964,9 @@
             transform: scale(0.9);
         }
         .seat-btn-cell.selected {
-            background-color: var(--color-primary);
-            color: var(--color-primary-text);
-            border-color: var(--color-primary);
+            background-color: var(--color-blue-btn-light);
+            color: var(--color-blue-btn-text);
+            border-color: var(--color-blue-btn-border);
         }
         .seat-btn-cell.reserved {
             background-color: #292223;
@@ -1028,14 +1029,14 @@
             margin-bottom: 5px;
         }
         .seat-slot-box.filled {
-            border: 2px solid var(--color-primary);
-            background-color: #3d3334;
-            border-bottom: 2px solid var(--color-primary);
+            border: 2px solid var(--color-blue-btn-border);
+            background-color: var(--color-blue-btn-light);
+            border-bottom: 2px solid var(--color-blue-btn-border);
         }
         .seat-slot-text {
             font-size: 18px;
             font-weight: bold;
-            color: var(--color-text-main);
+            color: var(--color-blue-btn-text);
             height: 20px;
             line-height: 1;
         }
@@ -1208,13 +1209,15 @@
         .ticket-seat-box {
             width: 25px;
             height: 25px;
-            background-color: #594a4c;
+            background-color: var(--color-blue-btn-light);
+            border: 2px solid var(--color-blue-btn-border);
+            box-sizing: border-box;
             margin-bottom: 5px;
         }
         .ticket-seat-id {
             font-size: 18px;
             font-weight: bold;
-            color: var(--color-text-main);
+            color: var(--color-blue-btn-text);
         }
         
         .ticket-select-btn {
@@ -2160,7 +2163,7 @@
 
             <!-- スケジュールリスト -->
             <div class="showtime-list-area">
-                <!-- 09:50 (○相当: 未占有部分は明度・彩度を落とした黄色、占有割合を下から白で塗りつぶし) -->
+                <!-- 09:50 (○相当: 未占有部分は中輝度の黄色、占有割合を下からグレーで塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター7', '09:50', '11:15', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2177,15 +2180,15 @@
                                 </clipPath>
                             </defs>
                             <g clip-path="url(#chair-clip-1)">
-                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#a16207" />
-                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#d4a017" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#8c8c8c" />
                             </g>
                             <path class="chair-outline" d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
 
-                <!-- 13:10 (○相当: 未占有部分は明度・彩度を落とした黄色、占有割合を下から白で塗りつぶし) -->
+                <!-- 13:10 (○相当: 未占有部分は中輝度の黄色、占有割合を下からグレーで塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター9', '13:10', '14:35', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2202,15 +2205,15 @@
                                 </clipPath>
                             </defs>
                             <g clip-path="url(#chair-clip-2)">
-                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#a16207" />
-                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#d4a017" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#8c8c8c" />
                             </g>
                             <path class="chair-outline" d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
 
-                <!-- 16:30 (○相当: 未占有部分は明度・彩度を落とした黄色、占有割合を下から白で塗りつぶし) -->
+                <!-- 16:30 (○相当: 未占有部分は中輝度の黄色、占有割合を下からグレーで塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター11', '16:30', '17:55', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2227,15 +2230,15 @@
                                 </clipPath>
                             </defs>
                             <g clip-path="url(#chair-clip-3)">
-                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#a16207" />
-                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#d4a017" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#8c8c8c" />
                             </g>
                             <path class="chair-outline" d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
 
-                <!-- 18:45 (○相当: 未占有部分は明度・彩度を落とした黄色、占有割合を下から白で塗りつぶし) -->
+                <!-- 18:45 (○相当: 未占有部分は中輝度の黄色、占有割合を下からグレーで塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター8', '18:45', '20:10', 'circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2252,15 +2255,15 @@
                                 </clipPath>
                             </defs>
                             <g clip-path="url(#chair-clip-4)">
-                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#a16207" />
-                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#ffffff" />
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#d4a017" />
+                                <rect class="chair-fill-occupied" x="0" y="41" width="56" height="29" fill="#8c8c8c" />
                             </g>
                             <path class="chair-outline" d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
                         </svg>
                     </div>
                 </div>
 
-                <!-- 21:40 (◎相当: 未占有部分は高輝度の明るい緑色、占有割合を下から白で塗りつぶし) -->
+                <!-- 21:40 (◎相当: 未占有部分は高輝度の明るい緑色、占有割合を下からグレーで塗りつぶし) -->
                 <div class="showtime-btn" onclick="selectShowtime('シアター11', '21:40', '23:05', 'double_circle')">
                     <div class="showtime-info-left">
                         <div class="showtime-theater-info">
@@ -2277,8 +2280,8 @@
                                 </clipPath>
                             </defs>
                             <g clip-path="url(#chair-clip-5)">
-                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#4ade80" />
-                                <rect class="chair-fill-occupied" x="0" y="56" width="56" height="14" fill="#ffffff" />
+                                <rect class="chair-fill-vacant" x="0" y="0" width="56" height="70" fill="#00ff7f" />
+                                <rect class="chair-fill-occupied" x="0" y="56" width="56" height="14" fill="#8c8c8c" />
                             </g>
                             <path class="chair-outline" d="M 16 6 H 40 Q 46 6 46 12 V 28 H 49 Q 52 28 52 31 V 52 Q 52 55 49 55 H 45 V 63 Q 45 65 43 65 H 39 Q 37 65 37 63 V 55 H 19 V 63 Q 19 65 17 65 H 13 Q 11 65 11 63 V 55 H 7 Q 4 55 4 52 V 31 Q 4 28 7 28 H 10 V 12 Q 10 6 16 6 Z" fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" />
                         </svg>
