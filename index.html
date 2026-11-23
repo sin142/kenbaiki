@@ -990,14 +990,14 @@
         .seat-footer-bar {
             position: absolute;
             bottom: 20px;
-            right: 40px;
+            right: calc(50% - 347px); /* 左端の位置を固定したまま決定ボタンを1.5倍(320px→480px, +160px)に拡張 */
             height: 140px;
             background-color: var(--color-chrome-bg);
             display: flex;
             align-items: center;
-            padding: 0 30px;
+            padding: 0 25px;
             box-sizing: border-box;
-            gap: 40px;
+            gap: 25px;
             border-radius: 8px;
             border: 2px solid var(--color-chrome-mid);
         }
@@ -1013,13 +1013,13 @@
         }
         .seat-selected-slots {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
         .seat-slot-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 60px;
+            width: 56px;
         }
         .seat-slot-box {
             width: 40px;
@@ -1058,7 +1058,11 @@
             cursor: not-allowed;
             background: var(--color-disabled-bg);
             box-shadow: none;
+            box-sizing: border-box;
             transition: background 0.2s, transform 0.1s;
+        }
+        #seat-submit-btn {
+            width: 480px;
         }
         #seat-submit-btn.active {
             cursor: pointer;
@@ -1315,14 +1319,22 @@
             border-color: transparent var(--color-surface-card) transparent transparent;
         }
 
-        /* 下部のアクションエリア */
+        /* 下部のアクションエリア（決定ボタンの中心がX座標50%に来るように配置） */
         .ticket-bottom-actions {
             position: absolute;
             bottom: 30px;
-            right: 50px; 
+            right: calc(50% - 240px); /* 決定ボタン幅480pxの半分だけ右へオフセットし、決定ボタンをX座標中央に配置 */
             display: flex;
             align-items: flex-end; /* ボタン同士の底を揃える */
             justify-content: flex-end;
+        }
+
+        /* ムビチケ群と吹き出しを縦にまとめるラッパー */
+        .mubichike-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
         }
 
         /* ムビチケ群（ダークカード背景で囲んでグレーアウトを避ける） */
@@ -1345,7 +1357,7 @@
             margin-left: 15px;
         }
 
-        /* ムビチケ用吹き出しスタイル */
+        /* ムビチケ用吹き出しスタイル（ボタンの上に配置、しっぽは下向き） */
         .ticket-guide-text {
             background-color: var(--color-surface-card);
             border: 1px solid var(--color-secondary-border);
@@ -1355,34 +1367,31 @@
             border-radius: 8px;
             position: relative;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            margin-bottom: 10px; /* ムビチケ枠のpadding分とy座標を合わせる */
+            margin-bottom: 26px; /* しっぽの高さ分の余白 */
             line-height: 1.4;
             text-align: left;
             z-index: 70; /* オーバーレイの上 */
-            right: 30px;
         }
-        /* しっぽを右向きに変更 */
+        /* しっぽを下向きに変更 */
         .ticket-guide-text::before {
             content: "";
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: -21px; 
-            left: auto;
-            border-width: 10px 0 10px 21px;
+            bottom: -21px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 21px 10px 0 10px;
             border-style: solid;
-            border-color: transparent transparent transparent var(--color-secondary-border);
+            border-color: var(--color-secondary-border) transparent transparent transparent;
         }
         .ticket-guide-text::after {
             content: "";
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: -19px; 
-            left: auto;
-            border-width: 9px 0 9px 20px;
+            bottom: -19px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 20px 9px 0 9px;
             border-style: solid;
-            border-color: transparent transparent transparent var(--color-surface-card);
+            border-color: var(--color-surface-card) transparent transparent transparent;
         }
 
         /* ムビチケ・シネマチケットボタン（やや抑えた青） */
@@ -1413,7 +1422,7 @@
             font-size: 12px;
         }
 
-        /* 決定ボタン（Primary） */
+        /* 決定ボタン（Primary：座席選択画面の決定ボタンと同様に横幅を480pxに拡張） */
         .ticket-submit-btn {
             background: linear-gradient(to bottom, var(--color-primary-light), var(--color-primary-dark));
             border: 1px solid var(--color-primary-border);
@@ -1426,7 +1435,7 @@
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
-            width: 220px;
+            width: 480px;
             height: 70px;
             transition: transform 0.1s;
         }
@@ -1730,12 +1739,12 @@
         .confirm-submit-btn {
             position: absolute;
             bottom: 30px;
-            right: 50px;
+            right: calc(50% - 240px); /* 幅480pxの半分だけオフセットしてX座標中央に配置 */
             background: linear-gradient(to bottom, var(--color-primary-light), var(--color-primary-dark));
             border: 1px solid var(--color-primary-border);
             border-radius: 6px;
             color: var(--color-primary-text);
-            padding: 15px 40px;
+            padding: 10px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1743,8 +1752,9 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
             transition: transform 0.1s;
+            width: 480px;
             height: 80px;
-            min-width: 200px;
+            box-sizing: border-box;
         }
         .confirm-submit-btn:active {
             transform: scale(0.98);
@@ -2560,21 +2570,24 @@
         <!-- 下部のアクションエリア -->
         <div class="ticket-bottom-actions">
             
-            <!-- 吹き出し (ハイライトなし、右向き, z-index:70) -->
-            <div class="ticket-guide-text" id="ticket-guide-bottom" >
-                ムビチケ、シネマチケット<br>をご利用のお客様は、<br>こちらをタッチしてください。
-            </div>
-            
-            <!-- ムビチケ群コンテナ (ハイライトあり) -->
-            <div class="mubichike-highlight-box highlight-element" id="mubichike-group">
-                <button class="ticket-blue-btn" onclick="openInfoModal('現在ムビチケ・シネマチケットサービスは<br>ご利用いただけません')">
-                    <div class="main">ムビチケ</div>
-                    <div class="en">Use Movi-tike</div>
-                </button>
-                <button class="ticket-blue-btn" onclick="openInfoModal('現在ムビチケ・シネマチケットサービスは<br>ご利用いただけません')">
-                    <div class="main">シネマチケット</div>
-                    <div class="en">Use Cinema Ticket</div>
-                </button>
+            <!-- ムビチケ群と吹き出しの縦並びコンテナ（決定ボタンの左端に連なる） -->
+            <div class="mubichike-area">
+                <!-- 吹き出し (ムビチケ・シネマチケットの上に配置、しっぽは下向き, z-index:70) -->
+                <div class="ticket-guide-text" id="ticket-guide-bottom">
+                    ムビチケ、シネマチケット<br>をご利用のお客様は、<br>こちらをタッチしてください。
+                </div>
+                
+                <!-- ムビチケ群コンテナ (ハイライトあり) -->
+                <div class="mubichike-highlight-box highlight-element" id="mubichike-group">
+                    <button class="ticket-blue-btn" onclick="openInfoModal('現在ムビチケ・シネマチケットサービスは<br>ご利用いただけません')">
+                        <div class="main">ムビチケ</div>
+                        <div class="en">Use Movi-tike</div>
+                    </button>
+                    <button class="ticket-blue-btn" onclick="openInfoModal('現在ムビチケ・シネマチケットサービスは<br>ご利用いただけません')">
+                        <div class="main">シネマチケット</div>
+                        <div class="en">Use Cinema Ticket</div>
+                    </button>
+                </div>
             </div>
             
             <!-- 決定ボタン（最初から表示し、無効化） -->
@@ -2770,7 +2783,7 @@
             </div>
         </div>
 
-        <!-- 右下アクションボタン（お支払いへ） -->
+        <!-- 下部中央アクションボタン（お支払いへ） -->
         <button class="confirm-submit-btn" onclick="navigate('screen-finish')">
             <div class="main">お支払いへ</div>
             <div class="en">Payment</div>
@@ -3381,6 +3394,7 @@
                     if (row === 'E' && col === 10) status = 'reserved'; 
                     if (row === 'F' && (col === 9 || col === 10)) status = 'reserved';
                     if (row === 'H' && col === 10) status = 'reserved';
+                    if (row === 'G' && col === 8) status = 'reserved';
 
                     // ○（circle）の上映時間の場合は、G列とH列をすべて予約済み（埋まっている）にする
                     if (statusType === 'circle' && (row === 'G' || row === 'H')) {
